@@ -21,8 +21,6 @@ public:
 
 int main()
 {
-    std::cout << "Hello World!\n";
-
     pogoda dzis_pogoda;
     pogoda jutro_pogoda;
     miejsce dzis_miejsce;
