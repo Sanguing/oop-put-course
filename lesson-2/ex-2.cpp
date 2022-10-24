@@ -45,5 +45,4 @@ public:
     {
         milk* tasty_milk = new milk("milk_no_1", 5, "black");
         tasty_milk->display();
-        
     }
