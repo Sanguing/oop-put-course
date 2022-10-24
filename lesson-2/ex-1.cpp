@@ -32,13 +32,6 @@ public:
         std::cout << "Well defined milk";
     }
 
-    void display()
-    {
-        std::cout << name << "\n" << fat_percentage << "\n" << color;
-    }
-
-    };
-
     int main()
     {
 
