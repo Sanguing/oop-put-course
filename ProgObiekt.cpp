@@ -1,59 +1,45 @@
-// ProgObiekt.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <string>
 
-class pogoda {
+class weather {
 public:
-    int temperatura;
-    std::string pogoda;
-    std::string wilgotnosc;
-    int wiatr;
+    int temperature;
+    std::string weather;
+    std::string humidity_percentage;
+    int wind_speed;
 };
 
-class miejsce {
+class place {
 public:
-    std::string kraj;
-    std::string rejon;
-    std::string miejscowosc;
+    std::string country;
+    std::string region;
+    std::string town;
 };
 
 int main()
 {
-    pogoda dzis_pogoda;
-    pogoda jutro_pogoda;
-    miejsce dzis_miejsce;
+    weather today_weather;
+    weather tommorow_weather;
+    place today_place;
 
-    dzis_pogoda.temperatura = 15;
-    dzis_pogoda.pogoda = "przejrzyste niebo, slonecznie";
-    dzis_pogoda.wilgotnosc = "65%";
-    dzis_pogoda.wiatr = 15;
+    today_weather.temperature = 15;
+    today_weather.weather = "przejrzyste niebo, slonecznie";
+    today_weather.humidity_percentage = "65%";
+    today_weather.wind_speed = 15;
 
-    jutro_pogoda.temperatura = 14;
-    jutro_pogoda.pogoda = "przejrzyste niebo, slonecznie";
-    jutro_pogoda.wilgotnosc = "60%";
-    jutro_pogoda.wiatr = 11;
+    tommorow_weather.temperature = 14;
+    tommorow_weather.weather = "przejrzyste niebo, slonecznie";
+    tommorow_weather.humidity_percentage = "60%";
+    tommorow_weather.wind_speed = 11;
 
 
-    dzis_miejsce.kraj = "Polska";
-    dzis_miejsce.rejon = "Wielkopolska";
-    dzis_miejsce.miejscowosc = "Poznan";
+    today_place.country = "Polska";
+    today_place.region = "Wielkopolska";
+    today_place.town = "Poznan";
 
-    if (dzis_pogoda.temperatura >= jutro_pogoda.temperatura)
+    if (today_weather.temperature >= tommorow_weather.temperature)
     {
-        std::cout << "Jutro nie bedzie cieplej";
+        std::cout << "Tommorow's not gonna be hotter";
     }
-    else { std::cout << "Jutro bedzie cieplej"; }
+    else { std::cout << "Tommorow's gonna be hotter"; }
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
