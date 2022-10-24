@@ -1,4 +1,5 @@
 // nie starczylo mi czasu wiec zrobilem na klasie z pierwszego zadania
+
 #include <iostream>
 #include <string>
 
