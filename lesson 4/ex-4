@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include <iomanip>
+
+class Celestial_Bodies {
+public:
+    virtual float radius() = 0;
+};
+
+class Planet : public Celestial_Bodies {
+private:
+    float kilometers;
+public:
+    Planet convert_radius(float factor) {
+        return Planet (kilometers * factor);
+    }
+
+    float radius() {
+        
+        return kilometers / 1000;
+
+    }
+
+    Planet(float kilometers) {
+
+        this -> kilometers = kilometers;
+
+    }
+
+};
+
+int main()
+{
+    
+    Planet test(5000000);
+
+}
+
