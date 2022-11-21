@@ -1,48 +1,60 @@
-// nie starczylo mi czasu wiec zrobilem na klasie z pierwszego zadania
-
 #include <iostream>
 #include <string>
+using namespace std;
 
-class milk {
-    std::string name;
-    float fat_percentage;
-    std::string color;
+class toast {
+
+private: 
+
+    string shape;
+    int cheese_slices_amount;
+    string extras;
 
 public:
 
-    milk()  {      
-        std::string name = "Milk";
-        fat_percentage = 0;
-        std::string color = "White";
-        std::cout << "Default";
-    }
-
-    milk(std::string name) {
-        this->name = name;
-        std::cout << "Poorly defined milk";
-    }
-
-    milk(std::string name, float fat_percentage) {
-        this->name = name;
-        this->fat_percentage = fat_percentage;
-        std::cout << "Average defined milk";
-    }
-    milk(std::string name, float fat_percentage, std::string color) {
-        this->name = name;
-        this->fat_percentage = fat_percentage;
-        this->color = color;
-        std::cout << "Well defined milk";
+    toast();
+    toast(string shape_s, int cheese_slices_amount_s, string extras_s) : shape(shape_s), cheese_slices_amount(cheese_slices_amount_s), extras(extras_s)
+    {
+        cout << "Class toast has been created" << endl;
     }
 
     void display()
     {
-        std::cout << "\n" <<name << "\n" << fat_percentage << "\n" << color << "\n";
+        cout << shape << "\n" << cheese_slices_amount<< "\n" << extras << "\n";
+        cout << endl << endl;
     }
 
-    };
+    int extract_slices() {
 
-    int main()
-    {
-        milk* tasty_milk = new milk("milk_no_1", 5, "black");
-        tasty_milk->display();
+        return cheese_slices_amount;
     }
+};
+
+toast::toast()
+{
+    cout << "Class default toast has been created" << endl;
+    shape = "circle";
+    cheese_slices_amount = 2;
+    extras = "jalapena, salami, onion";
+}
+
+int main()
+{
+    toast toast_0;
+    toast toast_1("rectangle", 5, "tomato");
+    toast toast_2("square", 1, "garlic, onion");
+    toast toast_3("trapezoid", 3, "paprica, mushrooms, honey");
+
+    cout << endl << endl;
+
+    toast_0.extract_slices();
+    toast_1.extract_slices();
+    toast_2.extract_slices();
+    toast_3.extract_slices();
+
+    toast_0.display();
+    toast_1.display();
+    toast_2.display();
+    toast_3.display();
+
+}
