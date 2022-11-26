@@ -2,89 +2,116 @@
 #include <cstdlib>
 #include <string>
 
-class year_list {
-private:
-    int years[10];
+using namespace std;
+
+class names {
+public: string name_s;
+
 public:
-    year_list()
-    {
-        for (int i = 1990; i <= 1999; i += 1)
-        {
+	names()
+	{
+		name_s = "Default Movie";
+	}
 
-            years[i - 1990] = i;
-
-        }
-    }
-
-    void display()
-    {
-        for (int i = 1990; i <= 1999; i += 1)
-        {
-
-            std::cout << years[i - 1990] << "\n";
-
-        }
-    }
+	void display()
+	{
+		cout << "Name of the movie is: " << name_s << endl;
+	}
 
 };
 
-class genres {
-private:
-    std::string genre;
-public:
-    genres() {
-        std::string genre = "Tragycomedy";
-        std::cout << "Genre of this movie is: " << genre << "\n";
-    }
+class years {
+public: 
+	int years_s;
 
-    std::string change_genre(std::string new_name) {
-        std::string genre = new_name;
-    }
+	years()
+	{
+		years_s = 1990;
+	}
+
+	void display()
+	{
+		cout << "Year of production is: " << years_s << endl;
+	}
 };
 
-class critic_score_class {
 
-private:
-    float score;
+class scores {
 public:
-    critic_score_class() {
+	float scores_s;
 
-        score = rand() % 101;
-        score /= 10;
+	scores()
+	{
+		scores_s = rand() % 101;
+		scores_s /= 10;
+	}
 
-    }
+	void display() {
 
-    void judge(float score) {
-        if (score < 5)
-            std::cout << "Movie is below average";
-        else
-            std::cout << "Movie is above average";
-    }
+		cout << "The score of the movie is " << scores_s << endl;
+	
+	}
+
+	string is_movie_any_good(float score) {
+
+		cout << "Is movie any good?" << endl;
+		string s;
+
+
+
+		if (score < 5)
+			s = "NO!!!";
+		else
+			s = "YES!!!";
+
+		return s;
+			
+	}
 };
+
 
 class movie {
+public:
 
-private:
-
-    std::string name;
-    genres genre;
-    year_list year;
-    critic_score_class critic_score;
+	names name;
+	years year;
+	scores score;
 
 public:
-    //default constructor
+	movie()
+	{
+		names();
+		years();
+		scores();
+	}
 
-    movie() {
-        std::string name = "asdf";
-        std::string genre = "comedy";
-        int year = 1999;
-        float critic_score = 7.6;
-    }
+	movie(string name_1, int year_1, float score_1)
+	{
+		name.name_s = name_1;
+		year.years_s = year_1;
+		score.scores_s = score_1;
+	}
+
+	void display_all() {
+
+		name.display();
+		year.display();
+		score.display();
+		cout << score.is_movie_any_good(score.scores_s) << endl << endl << endl;
+
+	}
 
 };
+
 
 
 int main()
 {
-   
+
+	srand((unsigned int)time(NULL));
+	movie movie_1;
+	movie movie_2("Lord of The Rings: Fellowship of the Ring", 2002, 9.7);
+
+	movie_1.display_all();
+	movie_2.display_all();
 }
