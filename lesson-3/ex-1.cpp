@@ -5,58 +5,75 @@
 using namespace std;
 
 class names {
-public: string name_s;
+
+private: string name;
 
 public:
 	names()
 	{
-		name_s = "Default Movie";
+		name = "Default Movie";
+	}
+
+	names(string name)
+	{
+		this->name = name;
 	}
 
 	void display()
 	{
-		cout << "Name of the movie is: " << name_s << endl;
+		cout << "Name of the movie is: " << name << endl;
 	}
 
 };
 
 class years {
-public: 
-	int years_s;
+private:
+	int year;
 
+public:
 	years()
 	{
-		years_s = 1990;
+		year = 1990;
+	}
+	years(int year)
+	{
+		this->year = year;
 	}
 
 	void display()
 	{
-		cout << "Year of production is: " << years_s << endl;
+		cout << "Year of production is: " << year << endl;
 	}
 };
 
 
 class scores {
-public:
-	float scores_s;
+private:
+	double score;
 
+public:
 	scores()
 	{
-		scores_s = rand() % 101;
-		scores_s /= 10;
+		score = rand() % 101;
+		score /= 10;
+	}
+
+	scores(double score)
+	{
+		this -> score = score;
 	}
 
 	void display() {
 
-		cout << "The score of the movie is " << scores_s << endl;
-	
+		cout << "The score of the movie is " << score << endl;
+
 	}
 
-	string is_movie_any_good(float score) {
+	string is_movie_any_good() {
 
-		cout << "Is movie any good?" << endl;
+		double score;
 		string s;
-
+		score = this->score;
 
 
 		if (score < 5)
@@ -64,32 +81,34 @@ public:
 		else
 			s = "YES!!!";
 
-		return s;
-			
+		return 	"Is movie any good? " + '\n' + s;
+
 	}
 };
 
 
 class movie {
-public:
+
+private:
 
 	names name;
 	years year;
 	scores score;
 
 public:
+
 	movie()
 	{
-		names();
-		years();
-		scores();
+		this->name = names();
+		this->year = years();
+		this->score = scores();
 	}
 
-	movie(string name_1, int year_1, float score_1)
+	movie(string name_movie, int year_movie, double score_movie)
 	{
-		name.name_s = name_1;
-		year.years_s = year_1;
-		score.scores_s = score_1;
+		this->name = names(name_movie);
+		this->year = years(year_movie);
+		this->score = scores(score_movie);
 	}
 
 	void display_all() {
@@ -97,7 +116,7 @@ public:
 		name.display();
 		year.display();
 		score.display();
-		cout << score.is_movie_any_good(score.scores_s) << endl << endl << endl;
+		cout << score.is_movie_any_good() << endl << endl << endl;
 
 	}
 
@@ -111,6 +130,7 @@ int main()
 	srand((unsigned int)time(NULL));
 	movie movie_1;
 	movie movie_2("Lord of The Rings: Fellowship of the Ring", 2002, 9.7);
+
 
 	movie_1.display_all();
 	movie_2.display_all();
